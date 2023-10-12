@@ -1,5 +1,5 @@
 {
-  "name": "custom-electron-titlebar",
+  "name": "@incanta/custom-electron-titlebar",
   "version": "4.2.8",
   "description": "Library for electron that allows you to configure a fully customizable title bar.",
   "types": "./dist/index.d.ts",
