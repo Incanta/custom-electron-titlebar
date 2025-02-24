@@ -15,7 +15,7 @@ export default () => {
 	))
 
 	// Handle window events
-	ipcMain.on('window-event', (event, eventName: String) => {
+	ipcMain.on('window-event', (event: any, eventName: String) => {
 		const window = BrowserWindow.fromWebContents(event.sender)
 
 		/* eslint-disable indent */
@@ -40,23 +40,23 @@ export default () => {
 	})
 
 	// Handle menu events
-	ipcMain.on('menu-event', (event, commandId: Number) => {
+	ipcMain.on('menu-event', (event: any, commandId: Number) => {
 		const item = getMenuItemByCommandId(commandId, Menu.getApplicationMenu())
 		if (item) item.click(undefined, BrowserWindow.fromWebContents(event.sender), event.sender)
 	})
 
 	// Handle the minimum size.
-	ipcMain.on('window-set-minimumSize', (event, width, height) => {
-	    const window = BrowserWindow.fromWebContents(event.sender);
-		
-	    /* eslint-disable indent */
-	    if (window) {
-		window?.setMinimumSize(width, height);
-	    }
-	});
+	ipcMain.on('window-set-minimumSize', (event: any, width: any, height: any) => {
+		const window = BrowserWindow.fromWebContents(event.sender)
+
+		/* eslint-disable indent */
+		if (window) {
+			window?.setMinimumSize(width, height)
+		}
+	})
 
 	// Handle menu item icon
-	ipcMain.on('menu-icon', (event, commandId: Number) => {
+	ipcMain.on('menu-icon', (event: any, commandId: Number) => {
 		const item = getMenuItemByCommandId(commandId, Menu.getApplicationMenu())
 		if (item && item.icon && typeof item.icon !== 'string') {
 			event.returnValue = item.icon.toDataURL()
@@ -65,7 +65,7 @@ export default () => {
 		}
 	})
 
-	ipcMain.on('update-window-controls', (event, args: Electron.TitleBarOverlay) => {
+	ipcMain.on('update-window-controls', (event: any, args: Electron.TitleBarOverlay) => {
 		const window = BrowserWindow.fromWebContents(event.sender)
 		try {
 			if (window) window.setTitleBarOverlay(args)

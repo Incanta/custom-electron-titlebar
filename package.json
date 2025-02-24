@@ -1,9 +1,10 @@
 {
   "name": "@incanta/custom-electron-titlebar",
-  "version": "4.2.8",
+  "version": "5.0.0",
   "description": "Library for electron that allows you to configure a fully customizable title bar.",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.ts",
+  "packageManager": "yarn@1.22.22",
   "typesVersions": {
     "*": {
       "main": [
